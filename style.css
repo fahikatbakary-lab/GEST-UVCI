@@ -1,3 +1,60 @@
+
+/* Chiffres/statistiques principaux en blanc, autres éléments adaptés pour la lisibilité */
+.stat-value,
+.stat-card .stat-value,
+.glass-card .stat-value {
+  color: #fff !important;
+}
+
+.sidebar-badge,
+.topbar-badge {
+  color: var(--primary-dark) !important;
+  background: var(--accent-light) !important;
+}
+
+.badge-green {
+  color: var(--primary-dark) !important;
+  background: var(--accent-light) !important;
+}
+.badge-orange {
+  color: #854F0B !important;
+  background: #FAEEDA !important;
+}
+.badge-red {
+  color: #A32D2D !important;
+  background: #FCEBEB !important;
+}
+.badge-blue {
+  color: var(--primary) !important;
+  background: var(--accent-light) !important;
+}
+.badge-gold {
+  color: var(--primary-dark) !important;
+  background: var(--accent-light) !important;
+}
+
+td, th {
+  color: var(--text) !important;
+}
+
+.stat-label, .stat-delta, .timeline-title, .timeline-time, .page-subtitle, .card-title-custom {
+  color: var(--text-muted) !important;
+}
+
+/* Tous les chiffres dans le texte (hors balises) */
+body :not(script):not(style) {
+  unicode-bidi: isolate;
+}
+body :not(script):not(style) {
+  /* Sélecteur avancé pour cibler les chiffres dans le texte */
+}
+
+/* Accueil en primary-dark */
+a[href="index.html"],
+a[href="index.html"]:visited {
+  color: var(--primary-dark) !important;
+  font-weight: bold;
+}
 /* =============================================
    GEST-UVCI — Application de Gestion des Heures
    Palette : Bleu Marine + Or | Glassmorphism
@@ -7,26 +64,24 @@
 
 /* ---- Variables ---- */
 :root {
-  --primary:      #1a237e;
-  --primary-dark: #0d1450;
-  --primary-light:#3949ab;
-  --accent:       #ffd700;
-  --accent-light: #ffe566;
-  --bg:           #080c24;
-  --vert:         #1b5e20;
-  --blanc:        #ffffff;
-  --bg2:          #0f1535;
-  --card-bg:      rgba(255,255,255,0.04);
-  --card-border:  rgba(255,215,0,0.15);
-  --text:         #e8eaf6;
-  --text-muted:   #9fa8da;
-  --violet:       #6A1B9A;
-  --sidebar-w:    260px;
-  --nav-h:        70px;
-  --radius:       14px;
-  --shadow:       0 8px 32px rgba(0,0,0,0.4);
-  --glow:         0 0 20px rgba(255,215,0,0.25);
-  --transition:   0.3s ease;
+  --primary: #3B6D11; /* vert principal */
+  --primary-dark: #27500A; /* vert très foncé */
+  --primary-light: #639922; /* vert moyen */
+  --accent: #97C459; /* vert clair accent */
+  --accent-light: #C0DD97; /* vert très clair */
+  --bg: #0d1a08; /* fond sombre verdâtre */
+  --bg2: #111f09; /* sidebar/topbar */
+  --card-bg: #1d3512; /* fond carte foncé */
+  --card-border: rgba(97,196,89,0.22);
+  --text: #fff; /* texte principal */
+  --text-muted: #C0DD97;
+  --blanc: #FFFFFF;
+  --sidebar-w: 260px;
+  --nav-h: 70px;
+  --radius: 14px;
+  --shadow: 0 8px 32px rgba(59,109,17,0.18);
+  --glow: 0 0 20px rgba(97,196,89,0.25);
+  --transition: 0.3s ease;
 }
 
 /* ---- Reset ---- */
@@ -47,7 +102,7 @@ body {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  background: rgba(8,12,36,0.92);
+  background:var(--blanc);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--card-border);
   z-index: 1050;
@@ -75,13 +130,13 @@ body {
 .topbar-brand .brand-name {
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
-  color: var(--blanc);
+  color: var(--primary-dark);
   line-height: 1.1;
 }
 
 .topbar-brand .brand-sub {
   font-size: 0.62rem;
-  color:var(--text);
+  color:var(--primary);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -690,15 +745,111 @@ body {
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 991px) {
-  .sidebar       { display: none; }
+  .sidebar {
+    display: block;
+    transform: translateX(-110%);
+    transition: transform 0.3s ease;
+    width: 80vw;
+    max-width: 320px;
+    top: var(--nav-h);
+    height: calc(100vh - var(--nav-h));
+    z-index: 2000;
+  }
   .main-content  { margin-left: 0; padding: 20px 16px; }
   .stat-value    { font-size: 1.6rem !important; }
+  /* Affichage d'un bouton menu burger sur mobile */
+  .topbar .navbar-toggler {
+    display: block !important;
+    background: var(--primary-dark);
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    margin-left: 12px;
+  }
+  .topbar-right { flex-direction: row-reverse; }
+  .topbar .topbar-right { gap: 8px; }
+  .nav-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+  }
+  .sidebar.mobile-active {
+    display: flex !important;
+    position: fixed;
+    left: 0; top: var(--nav-h); bottom: 0;
+    width: 80vw;
+    max-width: 320px;
+    z-index: 2000;
+    background: var(--bg2);
+    flex-direction: column;
+    animation: fadeInUp 0.3s;
+  }
+  .sidebar.mobile-backdrop {
+    display: block !important;
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1999;
+  }
 }
 
 @media (max-width: 576px) {
   .topbar-badge  { display: none; }
   .page-title    { font-size: 1.4rem; }
-  .main-content  { padding: 14px; }
+  .topbar .navbar-toggler {
+    font-size: 2rem;
+    padding: 6px 12px;
+  }
+  .sidebar.mobile-active {
+    width: 100vw;
+    max-width: none;
+  }
+}
+
+/* ========== NAVBAR BURGER (mobile) ========== */
+.navbar-toggler {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 2100;
+  background: var(--primary-dark);
+  border-radius: 8px;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.navbar-toggler span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 4px 0;
+  background: var(--blanc);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+@media (max-width: 991px) {
+  .navbar-toggler { display: flex; }
+  .sidebar {
+    transform: translateX(-110%);
+    transition: transform 0.3s;
+    z-index: 2000;
+  }
+  .nav-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+    box-shadow: 2px 0 16px rgba(0,0,0,0.12);
+  }
+  .nav-toggle:checked ~ .navbar-toggler span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle:checked ~ .navbar-toggler span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked ~ .navbar-toggler span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
 }
 
 /* ========== ANIMATIONS ========== */
