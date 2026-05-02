@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEST-UVCI — Gestion des Heures</title>
+  <meta name="description" content="Saisie et suivi des heures d'enseignement des enseignants de l'UVCI." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== TOPBAR ===== -->
+  <header class="topbar">
+    <a href="index.html" class="topbar-brand">
+      <div>
+        <div class="brand-name">GEST-UVCI</div>
+        <div class="brand-sub">Gestion des Heures</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <span class="topbar-badge"><i class="fa fa-calendar-alt me-1"></i> 2025 – 2026</span>
+      <div class="avatar-top">AD</div>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <span class="sidebar-section-label">Principal</span>
+    <a href="index.html" class="nav-link-side"><i class="fa fa-home"></i> Tableau de bord</a>
+    <a href="enseignants.html" class="nav-link-side"><i class="fa fa-chalkboard-teacher"></i> Enseignants <span class="sidebar-badge">24</span></a>
+    <a href="cours.html" class="nav-link-side"><i class="fa fa-book-open"></i> Cours &amp; Modules <span class="sidebar-badge">18</span></a>
+    <a href="heures.html" class="nav-link-side active"><i class="fa fa-clock"></i> Gestion des Heures</a>
+    <span class="sidebar-section-label">Analyse</span>
+    <a href="rapport.html" class="nav-link-side"><i class="fa fa-chart-bar"></i> Rapports</a>
+    <a href="#" class="nav-link-side"><i class="fa fa-sign-out-alt"></i> Déconnexion</a>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+
+    <div class="page-header fade-in">
+      <div class="breadcrumb-custom">
+        <a href="index.html">Accueil</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Heures</span>
+      </div>
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div>
+          <h1 class="page-title">Saisie des <span>Heures</span></h1>
+          <p class="page-subtitle">Enregistrez les séances effectuées par les enseignants</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Formulaire de Saisie -->
+      <div class="col-12 col-lg-5 fade-in-1">
+        <div class="glass-card">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-plus-circle"></i> Nouvelle séance</div>
+          </div>
+          <form action="#" method="post">
+            <div class="form-group">
+              <label class="form-label-custom">Enseignant</label>
+              <select class="form-control-custom" required>
+                <option value="">— Sélectionner —</option>
+                <option>Konan Blaise</option>
+                <option>Touré Dramane</option>
+                <option>Aka Fernand</option>
+                <option>Ouédraogo Marie</option>
+                <option>Bamba Salif</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label-custom">Module</label>
+              <select class="form-control-custom" required>
+                <option value="">— Sélectionner —</option>
+                <option>Algorithmique (L1 | S1)</option>
+                <option>Analyse Mathématique (L2 | S3)</option>
+                <option>Comptabilité (L3 | S5)</option>
+                <option>Droit des Affaires (M1 | S1)</option>
+                <option>Intelligence Artificielle (M2 | S3)</option>
+              </select>
+            </div>
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="form-label-custom">Date</label>
+                  <input type="date" class="form-control-custom" required />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="form-label-custom">Durée (h)</label>
+                  <input type="number" step="0.5" min="0.5" class="form-control-custom" placeholder="ex: 2" required />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label-custom">Type de séance</label>
+              <select class="form-control-custom">
+                <option>Cours Magistral (CM)</option>
+                <option>Travaux Dirigés (TD)</option>
+                <option>Travaux Pratiques (TP)</option>
+                <option>Examen / Soutenance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label-custom">Commentaire / Thème</label>
+              <textarea class="form-control-custom" rows="2" placeholder="Sujet abordé..."></textarea>
+            </div>
+            <button type="submit" class="btn-gold w-100 mt-2"><i class="fa fa-save"></i> Enregistrer la séance</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Historique récent -->
+      <div class="col-12 col-lg-7 fade-in-2">
+        <div class="glass-card">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-history"></i> Derniers enregistrements</div>
+            <div class="d-flex gap-2">
+              <button class="btn-outline-gold" style="font-size:0.75rem;"><i class="fa fa-filter"></i></button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table-glass">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Enseignant</th>
+                  <th>Module</th>
+                  <th>Durée</th>
+                  <th>Type</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10/01/2026</td>
+                  <td>Konan Blaise</td>
+                  <td><span class="badge-blue">L1</span> Algo</td>
+                  <td>4h</td>
+                  <td>CM</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="#" class="btn-icon edit"><i class="fa fa-edit"></i></a>
+                      <a href="#" class="btn-icon delete"><i class="fa fa-trash"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>09/01/2026</td>
+                  <td>Touré Dramane</td>
+                  <td><span class="badge-orange">L2</span> Analyse</td>
+                  <td>2h</td>
+                  <td>TD</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="#" class="btn-icon edit"><i class="fa fa-edit"></i></a>
+                      <a href="#" class="btn-icon delete"><i class="fa fa-trash"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>08/01/2026</td>
+                  <td>Aka Fernand</td>
+                  <td><span class="badge-red">L3</span> Compta</td>
+                  <td>6h</td>
+                  <td>TP</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="#" class="btn-icon edit"><i class="fa fa-edit"></i></a>
+                      <a href="#" class="btn-icon delete"><i class="fa fa-trash"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>07/01/2026</td>
+                  <td>Ouédraogo M.</td>
+                  <td><span class="badge-gold">M1</span> Droit</td>
+                  <td>3h</td>
+                  <td>CM</td>
+                  <td>
+                    <div class="d-flex gap-1">
+                      <a href="#" class="btn-icon edit"><i class="fa fa-edit"></i></a>
+                      <a href="#" class="btn-icon delete"><i class="fa fa-trash"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-3 text-center">
+            <a href="#" class="btn-outline-gold w-100" style="font-size:0.8rem;">Voir tout l'historique</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Récapitulatif Hebdomadaire -->
+    <div class="row mt-4 fade-in-3">
+      <div class="col-12">
+        <div class="glass-card">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-calendar-check"></i> Charge journalière estimée (Semaine en cours)</div>
+          </div>
+          <div class="row g-2 text-center">
+            <div class="col">
+              <div class="p-2" style="background:rgba(255,255,255,0.03); border-radius:8px;">
+                <div style="font-size:0.7rem; color:var(--text-muted);">LUN</div>
+                <div style="font-weight:700; color:var(--accent);">8h</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="p-2" style="background:rgba(255,255,255,0.03); border-radius:8px;">
+                <div style="font-size:0.7rem; color:var(--text-muted);">MAR</div>
+                <div style="font-weight:700; color:var(--accent);">6h</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="p-2" style="background:rgba(255,215,0,0.1); border-radius:8px; border:1px solid var(--accent);">
+                <div style="font-size:0.7rem; color:var(--text-muted);">MER</div>
+                <div style="font-weight:700; color:var(--accent);">10h</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="p-2" style="background:rgba(255,255,255,0.03); border-radius:8px;">
+                <div style="font-size:0.7rem; color:var(--text-muted);">JEU</div>
+                <div style="font-weight:700; color:var(--accent);">4h</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="p-2" style="background:rgba(255,255,255,0.03); border-radius:8px;">
+                <div style="font-size:0.7rem; color:var(--text-muted);">VEN</div>
+                <div style="font-weight:700; color:var(--accent);">12h</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="p-2" style="background:rgba(255,255,255,0.03); border-radius:8px;">
+                <div style="font-size:0.7rem; color:var(--text-muted);">SAM</div>
+                <div style="font-weight:700; color:var(--accent);">2h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>

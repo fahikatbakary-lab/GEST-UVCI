@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEST-UVCI — Tableau de Bord</title>
+  <meta name="description"
+    content="Application de gestion des heures des enseignants de l'Université Virtuelle de Côte d'Ivoire." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== TOPBAR ===== -->
+  <header class="topbar">
+    <a href="index.html" class="topbar-brand">
+      <div>
+        <div class="brand-name">GEST-UVCI</div>
+        <div class="brand-sub">Gestion des Heures</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <span class="topbar-badge"><i class="fa fa-calendar-alt me-1"></i> 2025 – 2026</span>
+      <div class="avatar-top">AD</div>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <span class="sidebar-section-label">Principal</span>
+
+    <a href="index.html" class="nav-link-side active">
+      <i class="fa fa-home"></i> Tableau de bord
+    </a>
+    <a href="enseignants.html" class="nav-link-side">
+      <i class="fa fa-chalkboard-teacher"></i> Enseignants
+      <span class="sidebar-badge">24</span>
+    </a>
+    <a href="cours.html" class="nav-link-side">
+      <i class="fa fa-book-open"></i> Cours &amp; Modules
+      <span class="sidebar-badge">18</span>
+    </a>
+    <a href="heures.html" class="nav-link-side">
+      <i class="fa fa-clock"></i> Gestion des Heures
+    </a>
+
+    <span class="sidebar-section-label">Analyse</span>
+    <a href="rapport.html" class="nav-link-side">
+      <i class="fa fa-chart-bar"></i> Rapports
+    </a>
+
+    <a href="#" class="nav-link-side">
+      <i class="fa fa-sign-out-alt"></i> Déconnexion
+    </a>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-content">
+
+    <!-- Stat Cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3 fade-in-1">
+        <div class="stat-card h-100">
+          <div class="stat-icon icon-gold"><i class="fa fa-chalkboard-teacher"></i></div>
+          <div class="stat-value">24</div>
+          <div class="stat-label">Enseignants actifs</div>
+          <div class="stat-delta up"><i class="fa fa-arrow-up"></i> +2 ce semestre</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 fade-in-2">
+        <div class="stat-card h-100">
+          <div class="stat-icon icon-blue"><i class="fa fa-book-open"></i></div>
+          <div class="stat-value">18</div>
+          <div class="stat-label">Modules actifs</div>
+          <div class="stat-delta up"><i class="fa fa-arrow-up"></i> +3 nouveaux</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 fade-in-3">
+        <div class="stat-card h-100">
+          <div class="stat-icon icon-green"><i class="fa fa-clock"></i></div>
+          <div class="stat-value">1 248</div>
+          <div class="stat-label">Heures dispensées</div>
+          <div class="stat-delta up"><i class="fa fa-arrow-up"></i> ce semestre</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 fade-in-4">
+        <div class="stat-card h-100">
+          <div class="stat-icon icon-red"><i class="fa fa-exclamation-circle"></i></div>
+          <div class="stat-value">3</div>
+          <div class="stat-label">Dépassements</div>
+          <div class="stat-delta down"><i class="fa fa-arrow-down"></i> heures sup.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tables + Activités -->
+    <div class="row g-3 mb-4">
+
+      <!-- Récapitulatif enseignants -->
+      <div class="col-12 col-lg-8 fade-in-2">
+        <div class="glass-card h-100">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-list-alt"></i> Récapitulatif des Heures</div>
+            <a href="heures.html" class="btn-outline-gold" style="font-size:0.78rem; padding:5px 14px;">Voir tout</a>
+          </div>
+          <div class="table-responsive">
+            <table class="table-glass">
+              <thead>
+                <tr>
+                  <th>Enseignant</th>
+                  <th>Module</th>
+                  <th>Heures prévues</th>
+                  <th>Heures réalisées</th>
+                  <th>Avancement</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar">KB</div>
+                      <div>
+                        <div style="font-weight:600; font-size:0.82rem;">Konan B.</div>
+                        <div style="font-size:0.7rem; color:var(--text-muted);">Prof. Informatique</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Algorithmique L1</td>
+                  <td>60h</td>
+                  <td>48h</td>
+                  <td>
+                    <div class="progress-custom" style="width:100px;">
+                      <div class="progress-fill" style="width:80%"></div>
+                    </div>
+                    <div style="font-size:0.7rem; color:var(--accent); margin-top:2px;">80%</div>
+                  </td>
+                  <td><span class="badge-orange">En cours</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar">TD</div>
+                      <div>
+                        <div style="font-weight:600; font-size:0.82rem;">Touré D.</div>
+                        <div style="font-size:0.7rem; color:var(--text-muted);">Prof. Mathématiques</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Analyse L2</td>
+                  <td>45h</td>
+                  <td>45h</td>
+                  <td>
+                    <div class="progress-custom" style="width:100px;">
+                      <div class="progress-fill green" style="width:100%"></div>
+                    </div>
+                    <div style="font-size:0.7rem; color:#81c784; margin-top:2px;">100%</div>
+                  </td>
+                  <td><span class="badge-green">Terminé</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar">AF</div>
+                      <div>
+                        <div style="font-weight:600; font-size:0.82rem;">Aka F.</div>
+                        <div style="font-size:0.7rem; color:var(--text-muted);">Prof. Gestion</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Comptabilité L3</td>
+                  <td>50h</td>
+                  <td>62h</td>
+                  <td>
+                    <div class="progress-custom" style="width:100px;">
+                      <div class="progress-fill red" style="width:100%"></div>
+                    </div>
+                    <div style="font-size:0.7rem; color:#ef9a9a; margin-top:2px;">+12h Sup.</div>
+                  </td>
+                  <td><span class="badge-red">Dépassement</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar">MO</div>
+                      <div>
+                        <div style="font-weight:600; font-size:0.82rem;">Ouédraogo M.</div>
+                        <div style="font-size:0.7rem; color:var(--text-muted);">Prof. Droit</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Droit des affaires</td>
+                  <td>40h</td>
+                  <td>18h</td>
+                  <td>
+                    <div class="progress-custom" style="width:100px;">
+                      <div class="progress-fill orange" style="width:45%"></div>
+                    </div>
+                    <div style="font-size:0.7rem; color:#ffb74d; margin-top:2px;">45%</div>
+                  </td>
+                  <td><span class="badge-orange">En cours</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <div class="avatar">SB</div>
+                      <div>
+                        <div style="font-weight:600; font-size:0.82rem;">Bamba S.</div>
+                        <div style="font-size:0.7rem; color:var(--text-muted);">Prof. Anglais</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Communication Pro L1</td>
+                  <td>30h</td>
+                  <td>10h</td>
+                  <td>
+                    <div class="progress-custom" style="width:100px;">
+                      <div class="progress-fill" style="width:33%"></div>
+                    </div>
+                    <div style="font-size:0.7rem; color:var(--accent); margin-top:2px;">33%</div>
+                  </td>
+                  <td><span class="badge-blue">Planifié</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activités récentes -->
+      <div class="col-12 col-lg-4 fade-in-3">
+        <div class="glass-card h-100">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-bell"></i> Activités récentes</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot green"></div>
+            <div class="timeline-content">
+              <div class="timeline-title">Touré D. a terminé Analyse L2</div>
+              <div class="timeline-time">Il y a 1h</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-title">Nouveau module ajouté : Big Data L3</div>
+              <div class="timeline-time">Il y a 3h</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#ef9a9a;"></div>
+            <div class="timeline-content">
+              <div class="timeline-title">⚠ Aka F. a dépassé son quota (+12h)</div>
+              <div class="timeline-time">Hier, 17h30</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot blue"></div>
+            <div class="timeline-content">
+              <div class="timeline-title">Konan B. — 4h saisies (Algo L1)</div>
+              <div class="timeline-time">Hier, 10h15</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot green"></div>
+            <div class="timeline-content">
+              <div class="timeline-title">Semestre 1 clôturé avec succès</div>
+              <div class="timeline-time">3 jours</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-title">Bamba S. affecté à Communication Pro</div>
+              <div class="timeline-time">5 jours</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modules + Alertes -->
+    <div class="row g-3">
+      <div class="col-12 col-lg-6 fade-in-3">
+        <div class="glass-card h-100">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-book-open"></i> Modules en cours</div>
+            <a href="cours.html" class="btn-outline-gold" style="font-size:0.78rem; padding:5px 14px;">Gérer</a>
+          </div>
+          <div class="d-flex flex-column gap-3">
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon icon-blue" style="width:42px;height:42px;border-radius:10px;flex-shrink:0;"><i
+                  class="fa fa-laptop-code"></i></div>
+              <div class="flex-grow-1">
+                <div style="font-weight:600;font-size:0.83rem;">Algorithmique &amp; Prog. L1</div>
+                <div class="progress-custom mt-1">
+                  <div class="progress-fill" style="width:80%"></div>
+                </div>
+              </div>
+              <span class="badge-orange">80%</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon icon-gold" style="width:42px;height:42px;border-radius:10px;flex-shrink:0;"><i
+                  class="fa fa-square-root-alt"></i></div>
+              <div class="flex-grow-1">
+                <div style="font-weight:600;font-size:0.83rem;">Analyse Mathématique L2</div>
+                <div class="progress-custom mt-1">
+                  <div class="progress-fill green" style="width:100%"></div>
+                </div>
+              </div>
+              <span class="badge-green">100%</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon icon-green" style="width:42px;height:42px;border-radius:10px;flex-shrink:0;"><i
+                  class="fa fa-balance-scale"></i></div>
+              <div class="flex-grow-1">
+                <div style="font-weight:600;font-size:0.83rem;">Droit des Affaires L2</div>
+                <div class="progress-custom mt-1">
+                  <div class="progress-fill orange" style="width:45%"></div>
+                </div>
+              </div>
+              <span class="badge-blue">45%</span>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="stat-icon icon-cyan" style="width:42px;height:42px;border-radius:10px;flex-shrink:0;"><i
+                  class="fa fa-database"></i></div>
+              <div class="flex-grow-1">
+                <div style="font-weight:600;font-size:0.83rem;">Base de Données L3</div>
+                <div class="progress-custom mt-1">
+                  <div class="progress-fill" style="width:60%"></div>
+                </div>
+              </div>
+              <span class="badge-orange">60%</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6 fade-in-4">
+        <div class="glass-card h-100">
+          <div class="card-header-custom">
+            <div class="card-title-custom"><i class="fa fa-exclamation-triangle"></i> Alertes &amp; Notifications</div>
+          </div>
+
+          <div class="notice-box warning">
+            <i class="fa fa-exclamation-triangle mt-1"></i>
+            <div>
+              <strong>Dépassement détecté</strong><br />
+              Aka F. a dépassé son quota horaire de <strong>12 heures</strong> sur Comptabilité L3.
+            </div>
+          </div>
+
+          <div class="notice-box info">
+            <i class="fa fa-info-circle mt-1"></i>
+            <div>
+              <strong>Clôture Semestre 1</strong><br />
+              Le rapport du semestre 1 doit être validé avant le <strong>15 janvier 2026</strong>.
+            </div>
+          </div>
+
+          <div class="notice-box success">
+            <i class="fa fa-check-circle mt-1"></i>
+            <div>
+              <strong>5 enseignants</strong> ont complété leurs heures pour ce mois-ci.
+            </div>
+          </div>
+
+          <div class="notice-box info">
+            <i class="fa fa-user-plus mt-1"></i>
+            <div>
+              <strong>2 nouveaux enseignants</strong> viennent d'être enregistrés dans le système.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+
+</html>
