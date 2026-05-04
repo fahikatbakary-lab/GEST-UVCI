@@ -119,6 +119,12 @@ body {
   text-decoration: none;
 }
 
+@media (max-width: 991px) {
+  .topbar-brand {
+    margin-left: 44px;
+  }
+}
+
 .topbar-brand img {
   width: 42px;
   height: 42px;
