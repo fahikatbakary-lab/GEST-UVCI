@@ -751,7 +751,53 @@ body {
 }
 
 /*ressources*/
- 
+ /* STYLE DES CADRES */
+.matiere-card{
+  border-radius: 20px;
+  transition: 0.3s ease;
+  background: #fff;
+}
+
+.matiere-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.matiere-icon{
+  width: 65px;
+  height: 65px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matiere-icon i{
+  color: white;
+  font-size: 26px;
+}
+
+.card-title{
+  font-weight: 700;
+}
+
+.card-text{
+  color: #64748B;
+  font-size: 14px;
+}
+
+.btn-primary{
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+}
+
+.btn-primary:hover{
+  opacity: 0.9;
+}
   
 
 /* ========== RESPONSIVE ========== */
